@@ -3,7 +3,7 @@ app.factory('notepadServices', ['$http', 'locationServices', function($http, loc
         function listar(callback) {
             $http({
                 method:'GET',
-                url: 'https://notepadsaas.herokuapp.com/nota'
+                url: 'https://notepadsaasmomberg.herokuapp.com/nota'
             }).then(function (data) {
                 if (callback) callback(data)
             });
@@ -12,7 +12,7 @@ app.factory('notepadServices', ['$http', 'locationServices', function($http, loc
         function pesquisarPor(nome, callback) {
             $http({
                 method:'GET',
-                url:'https://notepadsaas.herokuapp.com/nota/' + nome
+                url:'https://notepadsaasmomberg.herokuapp.com/nota/' + nome
             }).then(function (data) {
                 if (callback) callback(data)
             });
@@ -21,7 +21,7 @@ app.factory('notepadServices', ['$http', 'locationServices', function($http, loc
         function salvar(nota, callback) {
             $http({
                 method:'POST',
-                url:'https://notepadsaas.herokuapp.com/nota',
+                url:'https://notepadsaasmomberg.herokuapp.com/nota',
                 data:JSON.stringify(nota)
             }).then(function (data) {
                 if (callback) callback(data)
