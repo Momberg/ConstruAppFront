@@ -12,7 +12,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
         function pesquisarPor(nome, callback) {
             $http({
                 method:'GET',
-                url:'https://servicosfiap.herokuapp.com/prestador/' + nome
+                url:'https://servicosfiap.herokuapp.com/prestador/nome=' + nome
             }).then(function (data) {
                 if (callback) callback(data)
             });
