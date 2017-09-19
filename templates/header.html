@@ -18,13 +18,19 @@
             <a class="navbar-brand" href="index.html">Serviços SaaS</a>
         </div>
         <!-- nossos menu -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <!-- cada linha é um item do menu -->
-                <li><a href="#/">O que é?</a></li>
-                <li><a href="#/demo">Usar Demo</a></li>
-            </ul>
-        </div>
+        <form class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </form>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
