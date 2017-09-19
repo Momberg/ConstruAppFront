@@ -1,9 +1,9 @@
-app.factory('notepadServices', ['$http', 'locationServices', function($http, locationServices) {
+app.factory('prestadorServices', ['$http', 'locationServices', function($http, locationServices) {
 
         function listar(callback) {
             $http({
                 method:'GET',
-                url: 'https://notepadsaasmomberg.herokuapp.com/nota'
+                url: 'https://servicosfiap.herokuapp.com/prestador'
             }).then(function (data) {
                 if (callback) callback(data)
             });
@@ -12,17 +12,17 @@ app.factory('notepadServices', ['$http', 'locationServices', function($http, loc
         function pesquisarPor(nome, callback) {
             $http({
                 method:'GET',
-                url:'https://notepadsaasmomberg.herokuapp.com/nota/' + nome
+                url:'https://servicosfiap.herokuapp.com/prestador/' + nome
             }).then(function (data) {
                 if (callback) callback(data)
             });
         }
 
-        function salvar(nota, callback) {
+        function salvar(prestador, callback) {
             $http({
                 method:'POST',
-                url:'https://notepadsaasmomberg.herokuapp.com/nota',
-                data:JSON.stringify(nota)
+                url:'https://servicosfiap.herokuapp.com/prestador',
+                data:JSON.stringify(prestador)
             }).then(function (data) {
                 if (callback) callback(data)
             });
