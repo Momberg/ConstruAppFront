@@ -20,6 +20,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         .when("/", {templateUrl: "templates/home.html", controller: "HomeCtrl"})
         // configura��o das rotas bem parecidas para as outras paginas
         .when("/demo", {templateUrl: "templates/prestadorsaas.html", controller: "PrestadorCtrl"})
+        .when("/login", {templateUrl: "templates/login.html", controller: "LoginCtrl"})
         /* aqui voc� pode adicionar rotas para outras paginas que desejar criar */
         // por �ltimo dizemos se nenhuma url digitada for encontrada mostramos a p�gina 404 que n�o existe no nosso servidor
         .when('/404', {templateUrl: "templates/404.html"})

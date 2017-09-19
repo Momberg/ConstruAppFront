@@ -9,7 +9,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
             });
         }
 
-        function pesquisarPor(nome, callback) {
+        function pesquisarPorNome(nome, callback) {
             $http({
                 method:'GET',
                 url:'https://servicosfiap.herokuapp.com/prestador/nome=' + nome
@@ -31,6 +31,6 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
         return {
             listar:listar,
             salvar:salvar,
-            pesquisarPor:pesquisarPor
+            pesquisarPorNome:pesquisarPorNome
         };
     }])

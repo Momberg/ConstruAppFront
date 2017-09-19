@@ -7,8 +7,8 @@ app.controller('PrestadorCtrl', function ($scope, $location, prestadorServices) 
 		"senha" : ""
 	};
 
-	$scope.pesquisar = function (nome) {
-		prestadorServices.pesquisarPor(nome, function(prestador) {
+	$scope.pesquisarNome = function (nome) {
+		prestadorServices.pesquisarPorNome(nome, function(prestador) {
 			console.log(prestador);
             if(prestador.data.length > 0)
             	$scope.prestador = prestador.data[0];
