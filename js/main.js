@@ -1,27 +1,27 @@
 /**
  * Inicializamos o angular.module com o mesmo nome que definimos na diretiva ng-app
- * E incluímos a dependência do ngRoute
+ * E incluï¿½mos a dependï¿½ncia do ngRoute
  */
 var app = angular.module('website', [
     'ngRoute'
 ]);
 
 /**
- * Como possuímos a variavel app definida acima com a inicialização do Angular
- * através do app.config conseguimos criar as configurações
- * definimos que essa configuração depende do $routeProvider e usamos na function($routeProvider)
+ * Como possuï¿½mos a variavel app definida acima com a inicializaï¿½ï¿½o do Angular
+ * atravï¿½s do app.config conseguimos criar as configuraï¿½ï¿½es
+ * definimos que essa configuraï¿½ï¿½o depende do $routeProvider e usamos na function($routeProvider)
  */
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
 
-        // aqui dizemos quando estivernos na url / vamos carregar o conteúdo da pagina inicila a home
-        // no segundo parametro definimos um objeto contendo o templateUrl da nossa pagina home e o controller que irá
-        // preparar o conteudo e processar outros eventos da página que veremos posteriormente
+        // aqui dizemos quando estivernos na url / vamos carregar o conteï¿½do da pagina inicila a home
+        // no segundo parametro definimos um objeto contendo o templateUrl da nossa pagina home e o controller que irï¿½
+        // preparar o conteudo e processar outros eventos da pï¿½gina que veremos posteriormente
         .when("/", {templateUrl: "templates/home.html", controller: "HomeCtrl"})
-        // configuração das rotas bem parecidas para as outras paginas
-        .when("/demo", {templateUrl: "templates/notepadsaas.html", controller: "NotepadCtrl"})
-        /* aqui você pode adicionar rotas para outras paginas que desejar criar */
-        // por último dizemos se nenhuma url digitada for encontrada mostramos a página 404 que não existe no nosso servidor
+        // configuraï¿½ï¿½o das rotas bem parecidas para as outras paginas
+        .when("/demo", {templateUrl: "templates/prestadorsaas.html", controller: "PrestadorCtrl"})
+        /* aqui vocï¿½ pode adicionar rotas para outras paginas que desejar criar */
+        // por ï¿½ltimo dizemos se nenhuma url digitada for encontrada mostramos a pï¿½gina 404 que nï¿½o existe no nosso servidor
         .when('/404', {templateUrl: "templates/404.html"})
         .otherwise("/404");
 
