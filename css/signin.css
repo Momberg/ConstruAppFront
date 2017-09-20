@@ -43,3 +43,11 @@ h4 {
     box-shadow: 0 0 10px darkred;
     box-sizing: border-box;
 }
+
+.col-login {
+    top: 30%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    position: fixed; 
+}
