@@ -43,5 +43,13 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices) {
             console.log("Sucesso");
         })
     };
+
+    $scope.listarServico = function() {
+        servicosServices.listar(function(servico) {
+            if(servico.data.length > 0){
+                console.log("Quantidade de servicos: " + servico.data.length);
+            }
+        })
+    };
     
 });
