@@ -11,16 +11,17 @@ app.controller('HomeCtrl', function ($scope, $location, prestadorServices) {
     $scope.validaLogin = function (cpf, senha) {
 		prestadorServices.pesquisarPorCpf(cpf, function(prestador) {
 			console.log(prestador);
-            console.log("status: " + prestador.status);
             if(prestador.data != "") {
                 if(prestador.data.senha == senha) {
                     $scope.prestador = prestador.data[0];
                     window.location.href = "#/demo";
                 } else {
-                    alert("Senha incorreta");
+                    document.getElementById("userPassword").className = document.getElementById("userPassword").className + " error";
+                    document.getElementById("userPassword").focus();
                 }
             } else {
-            	alert("CPF não cadastrado");
+                document.getElementById("inputCpf").className = document.getElementById("inputCpf").className + " error";
+                document.getElementById("inputCpf").focus();
             }
         })
 	};
