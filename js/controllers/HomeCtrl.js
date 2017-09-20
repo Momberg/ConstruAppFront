@@ -9,12 +9,12 @@ app.controller('HomeCtrl', function ($scope, $location, prestadorServices) {
 	};
 
     $scope.validaLogin = function (cpf, senha) {
+        localStorage.clear();
 		prestadorServices.pesquisarPorCpf(cpf, function(prestador) {
-			console.log(prestador);
             if(prestador.data != "") {
                 if(prestador.data.senha == senha) {
-                    $scope.prestador = prestador.data[0];
-                    window.location.href = "#/demo";
+                    localStorage.setItem('id', prestador.data.id);
+                    window.location.href = "#/menu";
                 } else {
                     document.getElementById("userPassword").className = document.getElementById("userPassword").className + " error";
                     document.getElementById("userPassword").focus();
