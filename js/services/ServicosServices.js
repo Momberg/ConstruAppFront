@@ -5,7 +5,7 @@ app.factory('servicosServices', ['$http', 'locationServices', function($http, lo
                     method:'GET',
                     url: 'https://servicosfiap.herokuapp.com/servico'
                 }).then(function (data) {
-                    if (callback) callback(data)
+                    if (callback) callback(data);
                 });
             }
     
@@ -14,7 +14,7 @@ app.factory('servicosServices', ['$http', 'locationServices', function($http, lo
                     method:'GET',
                     url:'https://servicosfiap.herokuapp.com/servico/lista/tipoServico=' + tipo
                 }).then(function (data) {
-                    if (callback) callback(data)
+                    if (callback) callback(data);
                 });
             }
     
@@ -24,7 +24,7 @@ app.factory('servicosServices', ['$http', 'locationServices', function($http, lo
                     url:'https://servicosfiap.herokuapp.com/servico',
                     data:JSON.stringify(servico)
                 }).then(function (data) {
-                    if (callback) callback(data)
+                    if (callback) callback(data);
                 });
             }
     
@@ -33,7 +33,16 @@ app.factory('servicosServices', ['$http', 'locationServices', function($http, lo
                     method:'GET',
                     url:'https://servicosfiap.herokuapp.com/servico/lista/localServico=' + local
                 }).then(function (data) {
-                    if (callback) callback(data)
+                    if (callback) callback(data);
+                });
+            }
+
+            function pesquisarPorIdPrestador(id, callback) {
+                $http({
+                    method:'GET',
+                    url:'https://servicosfiap.herokuapp.com/servico/lista/idPrestador=' + id
+                }).then(function (data) {
+                    if (callback) callback(data);
                 });
             }
     
@@ -41,6 +50,7 @@ app.factory('servicosServices', ['$http', 'locationServices', function($http, lo
                 listar:listar,
                 salvar:salvar,
                 pesquisarPorTipoServico:pesquisarPorTipoServico,
-                pesquisarPorLocalServico:pesquisarPorLocalServico
+                pesquisarPorLocalServico:pesquisarPorLocalServico,
+                pesquisarPorIdPrestador:pesquisarPorIdPrestador
             };
-        }])
+        }]);

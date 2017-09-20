@@ -5,7 +5,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
                 method:'GET',
                 url: 'https://servicosfiap.herokuapp.com/prestador'
             }).then(function (data) {
-                if (callback) callback(data)
+                if (callback) callback(data);
             });
         }
 
@@ -14,7 +14,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
                 method:'GET',
                 url:'https://servicosfiap.herokuapp.com/prestador/nome=' + nome
             }).then(function (data) {
-                if (callback) callback(data)
+                if (callback) callback(data);
             });
         }
 
@@ -24,7 +24,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
                 url:'https://servicosfiap.herokuapp.com/prestador',
                 data:JSON.stringify(prestador)
             }).then(function (data) {
-                if (callback) callback(data)
+                if (callback) callback(data);
             });
         }
 
@@ -33,7 +33,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
                 method:'GET',
                 url:'https://servicosfiap.herokuapp.com/prestador/cpf=' + cpf
             }).then(function (data) {
-                if (callback) callback(data)
+                if (callback) callback(data);
             });
         }
 
@@ -43,4 +43,4 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
             pesquisarPorNome:pesquisarPorNome,
             pesquisarPorCpf:pesquisarPorCpf
         };
-    }])
+    }]);

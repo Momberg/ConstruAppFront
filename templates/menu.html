@@ -6,7 +6,7 @@
                 <ul class="nav nav-pills nav-stacked admin-menu">
                     <li class="active"><a href="" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
                     <li><a href="" data-target-id="cadastroServico"><i class="fa fa-list-alt fa-fw"></i>Cadastrar Serviço</a></li>
-                    <li><a href="" data-target-id="listaServico" id="listaServico" ng-click="listarServico()"><i class="fa fa-list-alt fa-fw"></i>Listar Serviços</a></li>
+                    <li><a href="" data-target-id="listaServico" ng-click="listarServico()"><i class="fa fa-list-alt fa-fw"></i>Listar Serviços</a></li>
                 </ul>
             </div>
             <div class="col-md-9 well admin-content" id="home">
@@ -15,7 +15,7 @@
             </div>
             <div class="col-md-9 well admin-content" id="cadastroServico">
                 <h4>Cadastro de serviços</h4></br>
-                <form role="form">
+                <form role="form" id="formCadastro">
                     <br style="clear:both">
                     <div class="form-group">
                         <input ng-model="servico.tipoServico" type="text" class="form-control" id="tipoServico" name="tipoServico" placeholder="Tipo de serviço" required>
@@ -28,22 +28,7 @@
             </div>
             <div class="col-md-9 well admin-content" id="listaServico">
                 <h4>Cards de serviços</h4></br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        Serviço 1</h3>
-                                </div>
-                                <ul class="list-group">
-                                    <a href="#" class="list-group-item">Manutenção</a>
-                                    <a href="#" class="list-group-item">Casa da Maria</a>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="container" id="rowContainer"></div>
             </div>
         </div>
     </div>
