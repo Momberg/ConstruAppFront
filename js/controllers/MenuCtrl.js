@@ -76,19 +76,17 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices, presta
     };
 
     $scope.pesquisaPrestador = function (pesquisa) {
-        var e = document.getElementById("dropdownPrestador");
+        var e = document.getElementById("dropdownPrestadorPesquisa");
         var selectedText = e.options[e.selectedIndex].text;
         if (pesquisa) {
-            console.log(selectedText);
             switch (selectedText) {
                 case 'Nome':
-                    console.log('Pesquisa Nome');
                     prestadorServices.pesquisarPorNome(pesquisa, function (prestador) {
                         buildCardsPrestador(prestador);
                     });
                     break;
                 case 'CPF':
-                    prestadorServices.pesquisarPorCpf(pesquisa, function (prestador) {
+                    prestadorServices.pesquisarPorCpfLista(pesquisa, function (prestador) {
                         buildCardsPrestador(prestador);
                     });
                     break;
@@ -220,7 +218,6 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices, presta
     }
 
     function buildCardsPrestador(prestador) {
-        console.log('build()');
         removeRowsPrestador();
         if (prestador.data.length > 0) {
             var num = 0;
@@ -304,7 +301,6 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices, presta
 
     function listaCardPrestador() {
         prestadorServices.listar(function (prestador) {
-            console.log(prestador);
             buildCardsPrestador(prestador);
         });
     }

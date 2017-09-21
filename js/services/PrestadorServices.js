@@ -31,6 +31,15 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
         function pesquisarPorCpf(cpf, callback) {
             $http({
                 method:'GET',
+                url:'https://servicosfiap.herokuapp.com/prestador/cpf=' + cpf
+            }).then(function (data) {
+                if (callback) callback(data);
+            });
+        }
+
+        function pesquisarPorCpfLista(cpf, callback) {
+            $http({
+                method:'GET',
                 url:'https://servicosfiap.herokuapp.com/prestador/lista/cpf=' + cpf
             }).then(function (data) {
                 if (callback) callback(data);
@@ -51,6 +60,7 @@ app.factory('prestadorServices', ['$http', 'locationServices', function($http, l
             salvar:salvar,
             pesquisarPorNome:pesquisarPorNome,
             pesquisarPorCpf:pesquisarPorCpf,
-            pesquisarPorTipo:pesquisarPorTipo
+            pesquisarPorTipo:pesquisarPorTipo,
+            pesquisarPorCpfLista:pesquisarPorCpfLista
         };
     }]);
