@@ -2,15 +2,15 @@ app.controller('HomeCtrl', function ($scope, $location, prestadorServices) {
     $scope.titulo = "Servicos";
 
     $scope.prestador = {
-		"nome" : "",
-		"cpf" : "",
-		"tipo" : "",
-		"senha" : ""
+		"nome": "",
+		"cpf": "",
+		"tipo": "",
+		"senha": ""
 	};
 
     $scope.validaLogin = function (cpf, senha) {
         localStorage.clear();
-		prestadorServices.pesquisarPorCpf(cpf, function(prestador) {
+		prestadorServices.pesquisarPorCpf(cpf, function (prestador) {
             if(prestador.data != "") {
                 if(prestador.data.senha == senha) {
                     localStorage.setItem('id', prestador.data.id);
@@ -25,6 +25,6 @@ app.controller('HomeCtrl', function ($scope, $location, prestadorServices) {
                 document.getElementById("inputCpf").focus();
             }
         });
-	};
+    };
 
 });

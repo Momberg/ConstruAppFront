@@ -3,15 +3,15 @@
     <div class="row">
         <div class="box">
             <div class="col-md-3">
-                <ul class="nav nav-pills nav-stacked admin-menu">
+                <ul class="nav nav-pills nav-stacked admin-menu" id="menuLateral">
                     <li class="active"><a href="" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
                     <li><a href="" data-target-id="cadastroServico"><i class="fa fa-list-alt fa-fw"></i>Cadastrar Serviço</a></li>
                     <li><a href="" data-target-id="listaServico" ng-click="listarServico()"><i class="fa fa-list-alt fa-fw"></i>Listar Serviços</a></li>
                 </ul>
             </div>
             <div class="col-md-9 well admin-content" id="home">
-                <h4>Bem vindo ao Serviço, </h4></br> 
-                <p>aqui você pode realizar o cadastro de seus serviços e consulta-los também.</p>
+                <h4>Bem vindo ao Prestador SaaS, </h4></br> 
+                <p>aqui você pode realizar o cadastro de seus serviços e consulta-los.</p>
             </div>
             <div class="col-md-9 well admin-content" id="cadastroServico">
                 <h4>Cadastro de serviços</h4></br>
@@ -28,8 +28,87 @@
             </div>
             <div class="col-md-9 well admin-content" id="listaServico">
                 <h4>Cards de serviços</h4></br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group" id="adv-search">
+                            <input type="text" class="form-control" placeholder="Pesquisa de serviços" ng-model="pesquisa" id="inputPesquisa"/>
+                            <div class="input-group-btn">
+                                <div class="btn-group" role="group">
+                                    <div class="dropdown dropdown-lg">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <form class="form-horizontal" role="form">
+                                              <div class="form-group">
+                                                <select class="form-control" id="dropdownServico">
+                                                    <option value="0" selected>Tipo</option>
+                                                    <option value="1">Local</option>
+                                                </select>
+                                              </div>
+                                              <button type="submit" class="btn btn-primary" ng-click="pesquisaServico(pesquisa)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </br>
                 <div class="container" id="rowContainer"></div>
             </div>
+            <div class="col-md-9 well admin-content" id="cadastroPrestador">
+                <h4>Cadastro de prestadores</h4></br>
+                <form role="form" id="formCadastroPrestador">
+                    <br style="clear:both">
+                    <div class="form-group">
+                        <input ng-model="prestador.nome" type="text" class="form-control" id="nomePrestador" name="nomePrestador" placeholder="Nome do prestador" required>
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="prestador.cpf" type="text" class="form-control" id="cpfPrestador" name="cpfPrestador" placeholder="CPF do prestador" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="dropdownPrestador">
+                            <option value="0" selected>Admin</option>
+                            <option value="1">Normal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="prestador.senha" type="password" class="form-control" id="senhaPrestador" name="senhaPrestador" placeholder="Senha do prestador" required>
+                    </div>
+                    <button ng-click="salvarPrestador(prestador)" type="button" id="salvaPrestador" name="salvaPrestador" class="btn btn-primary pull-right">Salvar</button>
+                </form>
+            </div>
+            <div class="col-md-9 well admin-content" id="listaPrestador">
+                    <h4>Cards de prestadores</h4></br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group" id="adv-search-p">
+                                <input type="text" class="form-control" placeholder="Pesquisa de prestadores" ng-model="pesquisaP" id="inputPesquisaP"/>
+                                <div class="input-group-btn">
+                                    <div class="btn-group" role="group">
+                                        <div class="dropdown dropdown-lg">
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <form class="form-horizontal" role="form">
+                                                  <div class="form-group">
+                                                    <select class="form-control" id="dropdownPrestador">
+                                                        <option value="0" selected>Nome</option>
+                                                        <option value="1">CPF</option>
+                                                        <option value="2">Tipo</option>
+                                                    </select>
+                                                  </div>
+                                                  <button type="submit" class="btn btn-primary" ng-click="pesquisaPrestador(pesquisaP)"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </br>
+                    <div class="container" id="rowContainerPrestador"></div>
+                </div>
         </div>
     </div>
 </div>
