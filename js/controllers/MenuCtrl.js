@@ -14,8 +14,10 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices, presta
             var target = $(this).attr('data-target-id');
             $('#' + target).show();
         });
-        document.getElementById('teste').onclick = function() {
-            listaCardPrestador();
+        if (localStorage.getItem('tipo') === 'admin') {
+            document.getElementById('itensMenu').onclick = function () {
+                listaCardPrestador();
+            }
         }
     });
 
@@ -91,10 +93,10 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices, presta
                     });
                     break;
                 case 'Tipo':
-                prestadorServices.pesquisarPorTipo(pesquisa, function (prestador) {
-                    buildCardsPrestador(prestador);
-                });
-                break;
+                    prestadorServices.pesquisarPorTipo(pesquisa, function (prestador) {
+                        buildCardsPrestador(prestador);
+                    });
+                    break;
                 default:
                     break;
             }
@@ -212,7 +214,7 @@ app.controller('MenuCtrl', function ($scope, $location, servicosServices, presta
             li.innerHTML = '<a href="" data-target-id="cadastroPrestador"><i class="fa fa-list-alt fa-fw"></i>Cadastrar Prestador</a>';
             document.getElementById('menuLateral').appendChild(li);
             li = document.createElement('li');
-            li.innerHTML = '<a href="" data-target-id="listaPrestador" id="teste"><i class="fa fa-list-alt fa-fw"></i>Listar Prestadores</a>';
+            li.innerHTML = '<a href="" data-target-id="listaPrestador" id="itensMenu"><i class="fa fa-list-alt fa-fw"></i>Listar Prestadores</a>';
             document.getElementById('menuLateral').appendChild(li);
         }
     }
